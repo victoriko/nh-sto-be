@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  	<springProperty name="Globals.LogLevel" source="/egovframework/egovProps/globals.properties"/>
+		
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[logback]%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+   	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+ 			<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+				<charset>UTF-8</charset>
+				<pattern>
+					%-5level [%d{yyyy-MM-dd HH:mm:ss}] [%X{req.session_id}] [%-60(%class{0}.%method\(\):%line)] %m%n
+				</pattern>
+			</encoder>
+			<file>./logs/AuthLedgerAdmin.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>./logs/AuthLedgerAdmin-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+				<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+					<maxFileSize>100MB</maxFileSize>
+				</timeBasedFileNamingAndTriggeringPolicy>
+			  	<maxHistory>30</maxHistory> 
+			</rollingPolicy>
+	</appender>
+
+	<logger name="java.sql" level="Globals.LogLevel" />
+	<logger name="egovframework" level="Globals.LogLevel" />
+	<logger name="org.egovframe" level="Globals.LogLevel" />
+	<logger name="jdbc.sqltiming" level="Globals.LogLevel" />
+	<logger name="org.springframework" level="Globals.LogLevel" />
+	
+	<root level="${Globals.LogLevel}">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ROLLING"/>  
+	</root>
+	
+
+</configuration>

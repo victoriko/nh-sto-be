@@ -1,0 +1,1163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SCManagementManageDAO">
+                 
+	<resultMap id="peerList" type="egovframework.let.sc.management.service.PeerVO">
+		<result property="requests" column="requests"/>
+		<result property="serverHostName" column="serverHostName"/>
+		<result property="peerType" column="peerType"/>
+		<result property="mspId" column="mspId"/>	
+	</resultMap>
+	
+	<resultMap id="blockList" type="egovframework.let.sc.management.service.BlockVO">
+		<result property="blockNum" column="blockNum"/>
+		<result property="channelName" column="channelName"/>
+		<result property="txCount" column="txCount"/>
+		<result property="dataHash" column="dataHash"/>	
+		<result property="blockHash" column="blockHash"/>
+		<result property="preHash" column="preHash"/>
+		<result property="txHash" column="txHash"/>
+		<result property="blkSize" column="blkSize"/>
+	</resultMap>	
+	
+	<resultMap id="dBlockList" type="egovframework.let.sc.management.service.BlockVO">
+		<result property="blockNum" column="blockNum"/>
+		<result property="channelName" column="channelName"/>
+		<result property="txCount" column="txCount"/>
+		<result property="dataHash" column="dataHash"/>	
+		<result property="dateDiff" column="dateDiff"/>	
+	</resultMap>	
+
+	<resultMap id="blockHourCntList" type="egovframework.let.sc.management.service.BlockVO">
+		<result property="countPerHour" column="countPerHour"/>
+		<result property="countPerHour1" column="countPerHour1"/>
+		<result property="countPerHour2" column="countPerHour2"/>
+		<result property="countPerHour3" column="countPerHour3"/>
+		<result property="countPerHour4" column="countPerHour4"/>
+		<result property="countPerHour5" column="countPerHour5"/>
+		<result property="countPerHour6" column="countPerHour6"/>
+		<result property="countPerHour7" column="countPerHour7"/>
+		<result property="countPerHour8" column="countPerHour8"/>
+		<result property="countPerHour9" column="countPerHour9"/>
+		<result property="countPerHour10" column="countPerHour10"/>	
+		<result property="countPerHour11" column="countPerHour11"/>
+		<result property="countPerHour12" column="countPerHour12"/>
+		<result property="countPerHour13" column="countPerHour13"/>
+		<result property="countPerHour14" column="countPerHour14"/>
+		<result property="countPerHour15" column="countPerHour15"/>
+		<result property="countPerHour16" column="countPerHour16"/>
+		<result property="countPerHour17" column="countPerHour17"/>
+		<result property="countPerHour18" column="countPerHour18"/>
+		<result property="countPerHour19" column="countPerHour19"/>
+		<result property="countPerHour20" column="countPerHour20"/>	
+		<result property="countPerHour21" column="countPerHour21"/>
+		<result property="countPerHour22" column="countPerHour22"/>
+		<result property="countPerHour23" column="countPerHour23"/>
+	</resultMap>
+
+	<resultMap id="blockMinCntList" type="egovframework.let.sc.management.service.BlockVO">
+		<result property="countPerMin" column="countPerMin"/>
+		<result property="countPerMin1" column="countPerMin1"/>
+		<result property="countPerMin2" column="countPerMin2"/>
+		<result property="countPerMin3" column="countPerMin3"/>
+		<result property="countPerMin4" column="countPerMin4"/>
+		<result property="countPerMin5" column="countPerMin5"/>
+		<result property="countPerMin6" column="countPerMin6"/>
+		<result property="countPerMin7" column="countPerMin7"/>
+		<result property="countPerMin8" column="countPerMin8"/>
+		<result property="countPerMin9" column="countPerMin9"/>
+		<result property="countPerMin10" column="countPerMin10"/>	
+		<result property="countPerMin11" column="countPerMin11"/>
+		<result property="countPerMin12" column="countPerMin12"/>
+		<result property="countPerMin13" column="countPerMin13"/>
+		<result property="countPerMin14" column="countPerMin14"/>
+		<result property="countPerMin15" column="countPerMin15"/>
+		<result property="countPerMin16" column="countPerMin16"/>
+		<result property="countPerMin17" column="countPerMin17"/>
+		<result property="countPerMin18" column="countPerMin18"/>
+		<result property="countPerMin19" column="countPerMin19"/>
+		<result property="countPerMin20" column="countPerMin20"/>	
+		<result property="countPerMin21" column="countPerMin21"/>
+		<result property="countPerMin22" column="countPerMin22"/>
+		<result property="countPerMin23" column="countPerMin23"/>
+		<result property="countPerMin24" column="countPerMin24"/>
+		<result property="countPerMin25" column="countPerMin25"/>
+		<result property="countPerMin26" column="countPerMin26"/>
+		<result property="countPerMin27" column="countPerMin27"/>
+		<result property="countPerMin28" column="countPerMin28"/>
+		<result property="countPerMin29" column="countPerMin29"/>
+		<result property="countPerMin30" column="countPerMin30"/>	
+		<result property="countPerMin31" column="countPerMin31"/>
+		<result property="countPerMin32" column="countPerMin32"/>
+		<result property="countPerMin33" column="countPerMin33"/>
+		<result property="countPerMin34" column="countPerMin34"/>
+		<result property="countPerMin35" column="countPerMin35"/>
+		<result property="countPerMin36" column="countPerMin36"/>
+		<result property="countPerMin37" column="countPerMin37"/>
+		<result property="countPerMin38" column="countPerMin38"/>
+		<result property="countPerMin39" column="countPerMin39"/>
+		<result property="countPerMin40" column="countPerMin40"/>	
+		<result property="countPerMin41" column="countPerMin41"/>
+		<result property="countPerMin42" column="countPerMin42"/>
+		<result property="countPerMin43" column="countPerMin43"/>
+		<result property="countPerMin44" column="countPerMin44"/>
+		<result property="countPerMin45" column="countPerMin45"/>
+		<result property="countPerMin46" column="countPerMin46"/>
+		<result property="countPerMin47" column="countPerMin47"/>
+		<result property="countPerMin48" column="countPerMin48"/>
+		<result property="countPerMin49" column="countPerMin49"/>
+		<result property="countPerMin50" column="countPerMin50"/>	
+		<result property="countPerMin51" column="countPerMin51"/>
+		<result property="countPerMin52" column="countPerMin52"/>
+		<result property="countPerMin53" column="countPerMin53"/>
+		<result property="countPerMin54" column="countPerMin54"/>
+		<result property="countPerMin55" column="countPerMin55"/>
+		<result property="countPerMin56" column="countPerMin56"/>
+		<result property="countPerMin57" column="countPerMin57"/>
+		<result property="countPerMin58" column="countPerMin58"/>
+		<result property="countPerMin59" column="countPerMin59"/>
+	</resultMap>
+
+	<resultMap id="transactionList" type="egovframework.let.sc.management.service.TransactionVO">
+		<result property="creatorMspId" column="creatorMspId"/>
+		<result property="channelName" column="channelName"/>
+		<result property="txHash" column="txHash"/>
+		<result property="type" column="type"/>	
+		<result property="chaincodeName" column="chaincodeName"/>
+		<result property="createDt" column="createDt"/>	
+		<result property="validationCode" column="validationCode"/>	
+		<result property="payloadProposalHash" column="payloadProposalHash"/>
+		<result property="endorserMspId" column="endorserMspId"/>	
+	</resultMap>
+
+	<resultMap id="transactionHourCntList" type="egovframework.let.sc.management.service.TransactionVO">
+		<result property="countPerHour" column="countPerHour"/>
+		<result property="countPerHour1" column="countPerHour1"/>
+		<result property="countPerHour2" column="countPerHour2"/>
+		<result property="countPerHour3" column="countPerHour3"/>
+		<result property="countPerHour4" column="countPerHour4"/>
+		<result property="countPerHour5" column="countPerHour5"/>
+		<result property="countPerHour6" column="countPerHour6"/>
+		<result property="countPerHour7" column="countPerHour7"/>
+		<result property="countPerHour8" column="countPerHour8"/>
+		<result property="countPerHour9" column="countPerHour9"/>
+		<result property="countPerHour10" column="countPerHour10"/>	
+		<result property="countPerHour11" column="countPerHour11"/>
+		<result property="countPerHour12" column="countPerHour12"/>
+		<result property="countPerHour13" column="countPerHour13"/>
+		<result property="countPerHour14" column="countPerHour14"/>
+		<result property="countPerHour15" column="countPerHour15"/>
+		<result property="countPerHour16" column="countPerHour16"/>
+		<result property="countPerHour17" column="countPerHour17"/>
+		<result property="countPerHour18" column="countPerHour18"/>
+		<result property="countPerHour19" column="countPerHour19"/>
+		<result property="countPerHour20" column="countPerHour20"/>	
+		<result property="countPerHour21" column="countPerHour21"/>
+		<result property="countPerHour22" column="countPerHour22"/>
+		<result property="countPerHour23" column="countPerHour23"/>
+		<result property="curHour" column="curHour"/>
+		<result property="curHour1" column="curHour1"/>
+		<result property="curHour2" column="curHour2"/>
+		<result property="curHour3" column="curHour3"/>
+		<result property="curHour4" column="curHour4"/>
+		<result property="curHour5" column="curHour5"/>
+		<result property="curHour6" column="curHour6"/>
+		<result property="curHour7" column="curHour7"/>
+		<result property="curHour8" column="curHour8"/>
+		<result property="curHour9" column="curHour9"/>
+		<result property="curHour10" column="curHour10"/>
+		<result property="curHour11" column="curHour11"/>
+		<result property="curHour12" column="curHour12"/>
+		<result property="curHour13" column="curHour13"/>
+		<result property="curHour14" column="curHour14"/>
+		<result property="curHour15" column="curHour15"/>
+		<result property="curHour16" column="curHour16"/>
+		<result property="curHour17" column="curHour17"/>
+		<result property="curHour18" column="curHour18"/>
+		<result property="curHour19" column="curHour19"/>
+		<result property="curHour20" column="curHour20"/>
+		<result property="curHour21" column="curHour21"/>
+		<result property="curHour22" column="curHour22"/>
+		<result property="curHour23" column="curHour23"/>
+	</resultMap>
+		
+	<resultMap id="transactionMinCntList" type="egovframework.let.sc.management.service.TransactionVO">
+		<result property="countPerMin" column="countPerMin"/>
+		<result property="countPerMin1" column="countPerMin1"/>
+		<result property="countPerMin2" column="countPerMin2"/>
+		<result property="countPerMin3" column="countPerMin3"/>
+		<result property="countPerMin4" column="countPerMin4"/>
+		<result property="countPerMin5" column="countPerMin5"/>
+		<result property="countPerMin6" column="countPerMin6"/>
+		<result property="countPerMin7" column="countPerMin7"/>
+		<result property="countPerMin8" column="countPerMin8"/>
+		<result property="countPerMin9" column="countPerMin9"/>
+		<result property="countPerMin10" column="countPerMin10"/>	
+		<result property="countPerMin11" column="countPerMin11"/>
+		<result property="countPerMin12" column="countPerMin12"/>
+		<result property="countPerMin13" column="countPerMin13"/>
+		<result property="countPerMin14" column="countPerMin14"/>
+		<result property="countPerMin15" column="countPerMin15"/>
+		<result property="countPerMin16" column="countPerMin16"/>
+		<result property="countPerMin17" column="countPerMin17"/>
+		<result property="countPerMin18" column="countPerMin18"/>
+		<result property="countPerMin19" column="countPerMin19"/>
+		<result property="countPerMin20" column="countPerMin20"/>	
+		<result property="countPerMin21" column="countPerMin21"/>
+		<result property="countPerMin22" column="countPerMin22"/>
+		<result property="countPerMin23" column="countPerMin23"/>
+		<result property="countPerMin24" column="countPerMin24"/>
+		<result property="countPerMin25" column="countPerMin25"/>
+		<result property="countPerMin26" column="countPerMin26"/>
+		<result property="countPerMin27" column="countPerMin27"/>
+		<result property="countPerMin28" column="countPerMin28"/>
+		<result property="countPerMin29" column="countPerMin29"/>
+		<result property="countPerMin30" column="countPerMin30"/>	
+		<result property="countPerMin31" column="countPerMin31"/>
+		<result property="countPerMin32" column="countPerMin32"/>
+		<result property="countPerMin33" column="countPerMin33"/>
+		<result property="countPerMin34" column="countPerMin34"/>
+		<result property="countPerMin35" column="countPerMin35"/>
+		<result property="countPerMin36" column="countPerMin36"/>
+		<result property="countPerMin37" column="countPerMin37"/>
+		<result property="countPerMin38" column="countPerMin38"/>
+		<result property="countPerMin39" column="countPerMin39"/>
+		<result property="countPerMin40" column="countPerMin40"/>	
+		<result property="countPerMin41" column="countPerMin41"/>
+		<result property="countPerMin42" column="countPerMin42"/>
+		<result property="countPerMin43" column="countPerMin43"/>
+		<result property="countPerMin44" column="countPerMin44"/>
+		<result property="countPerMin45" column="countPerMin45"/>
+		<result property="countPerMin46" column="countPerMin46"/>
+		<result property="countPerMin47" column="countPerMin47"/>
+		<result property="countPerMin48" column="countPerMin48"/>
+		<result property="countPerMin49" column="countPerMin49"/>
+		<result property="countPerMin50" column="countPerMin50"/>	
+		<result property="countPerMin51" column="countPerMin51"/>
+		<result property="countPerMin52" column="countPerMin52"/>
+		<result property="countPerMin53" column="countPerMin53"/>
+		<result property="countPerMin54" column="countPerMin54"/>
+		<result property="countPerMin55" column="countPerMin55"/>
+		<result property="countPerMin56" column="countPerMin56"/>
+		<result property="countPerMin57" column="countPerMin57"/>
+		<result property="countPerMin58" column="countPerMin58"/>
+		<result property="countPerMin59" column="countPerMin59"/>	
+		<result property="curMin" column="curMin"/>
+		<result property="curMin1" column="curMin1"/>
+		<result property="curMin2" column="curMin2"/>
+		<result property="curMin3" column="curMin3"/>
+		<result property="curMin4" column="curMin4"/>
+		<result property="curMin5" column="curMin5"/>
+		<result property="curMin6" column="curMin6"/>
+		<result property="curMin7" column="curMin7"/>
+		<result property="curMin8" column="curMin8"/>
+		<result property="curMin9" column="curMin9"/>
+		<result property="curMin10" column="curMin10"/>
+		<result property="curMin11" column="curMin11"/>
+		<result property="curMin12" column="curMin12"/>
+		<result property="curMin13" column="curMin13"/>
+		<result property="curMin14" column="curMin14"/>
+		<result property="curMin15" column="curMin15"/>
+		<result property="curMin16" column="curMin16"/>
+		<result property="curMin17" column="curMin17"/>
+		<result property="curMin18" column="curMin18"/>
+		<result property="curMin19" column="curMin19"/>
+		<result property="curMin20" column="curMin20"/>
+		<result property="curMin21" column="curMin21"/>
+		<result property="curMin22" column="curMin22"/>
+		<result property="curMin23" column="curMin23"/>
+		<result property="curMin24" column="curMin24"/>
+		<result property="curMin25" column="curMin25"/>
+		<result property="curMin26" column="curMin26"/>
+		<result property="curMin27" column="curMin27"/>
+		<result property="curMin28" column="curMin28"/>
+		<result property="curMin29" column="curMin29"/>
+		<result property="curMin30" column="curMin30"/>
+		<result property="curMin31" column="curMin31"/>
+		<result property="curMin32" column="curMin32"/>
+		<result property="curMin33" column="curMin33"/>
+		<result property="curMin34" column="curMin34"/>
+		<result property="curMin35" column="curMin35"/>
+		<result property="curMin36" column="curMin36"/>
+		<result property="curMin37" column="curMin37"/>
+		<result property="curMin38" column="curMin38"/>
+		<result property="curMin39" column="curMin39"/>
+		<result property="curMin40" column="curMin40"/>
+		<result property="curMin41" column="curMin41"/>
+		<result property="curMin42" column="curMin42"/>
+		<result property="curMin43" column="curMin43"/>
+		<result property="curMin44" column="curMin44"/>
+		<result property="curMin45" column="curMin45"/>
+		<result property="curMin46" column="curMin46"/>
+		<result property="curMin47" column="curMin47"/>
+		<result property="curMin48" column="curMin48"/>
+		<result property="curMin49" column="curMin49"/>	
+		<result property="curMin50" column="curMin50"/>
+		<result property="curMin51" column="curMin51"/>
+		<result property="curMin52" column="curMin52"/>
+		<result property="curMin53" column="curMin53"/>
+		<result property="curMin54" column="curMin54"/>
+		<result property="curMin55" column="curMin55"/>
+		<result property="curMin56" column="curMin56"/>
+		<result property="curMin57" column="curMin57"/>
+		<result property="curMin58" column="curMin58"/>
+		<result property="curMin59" column="curMin59"/>
+	</resultMap>
+
+	<resultMap id="transactionCMspIdCntList" type="egovframework.let.sc.management.service.TransactionVO">
+		<result property="creatorMspId" column="creatorMspId"/>
+		<result property="countCMspId" column="countCMspId"/>
+	</resultMap>
+	
+	<resultMap id="transactionCMspIdList" type="egovframework.let.sc.management.service.TransactionVO">
+		<result property="creatorMspId" column="creatorMspId"/>
+	</resultMap>
+
+	<resultMap id="chaincodeList" type="egovframework.let.sc.management.service.ChaincodeVO">
+		<result property="name" column="name"/>
+		<result property="channelName" column="channelName"/>
+		<result property="path" column="path"/>
+		<result property="txCount" column="txCount"/>	
+		<result property="version" column="version"/>
+	</resultMap>
+
+	<resultMap id="channelList" type="egovframework.let.sc.management.service.ChannelVO">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="blocksCnt" column="blocksCnt"/>
+		<result property="transCnt" column="transCnt"/>	
+		<result property="createDt" column="createDt"/>
+	</resultMap>
+
+
+
+	<select id="selectPeerList" parameterType="egovframework.let.sc.management.service.PeerVO" resultMap="peerList">
+		
+			SELECT COALESCE(REQUESTS, '') AS requests
+                 , COALESCE(SERVER_HOSTNAME, '') AS serverHostName
+                 , COALESCE(PEER_TYPE, '') AS peerType
+                 , COALESCE(MSPID, '') AS mspId
+              FROM PEER
+             
+ 			WHERE REQUESTS LIKE '%' || #{searchWrd3} || '%'
+ 			AND SERVER_HOSTNAME LIKE '%' || #{searchWrd4} || '%'
+ 			AND PEER_TYPE LIKE '%' || #{searchWrd5} || '%'
+ 			AND MSPID LIKE '%' || #{searchWrd6} || '%'
+ 			
+			ORDER BY ID ASC		
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		
+					
+	</select>	
+	
+	
+	<select id="selectPeerReverseList" parameterType="egovframework.let.sc.management.service.PeerVO" resultMap="peerList">
+		
+			SELECT COALESCE(REQUESTS, '') AS requests
+                 , COALESCE(SERVER_HOSTNAME, '') AS serverHostName
+                 , COALESCE(PEER_TYPE, '') AS peerType
+                 , COALESCE(MSPID, '') AS mspId
+              FROM PEER
+
+			ORDER BY ID DESC		
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		
+					
+	</select>	
+	
+	<select id="selectPeerListCnt" parameterType="egovframework.let.sc.management.service.PeerVO" resultType="java.lang.Integer">
+		
+			SELECT
+				COUNT(ID)
+			FROM
+				PEER		
+				
+	 		WHERE REQUESTS LIKE '%' || #{searchWrd3} || '%'
+ 			AND SERVER_HOSTNAME LIKE '%' || #{searchWrd4} || '%'
+ 			AND PEER_TYPE LIKE '%' || #{searchWrd5} || '%'
+ 			AND MSPID LIKE '%' || #{searchWrd6} || '%'			
+				
+	</select>	
+	
+	
+ 	<select id="selectBlockList" parameterType="egovframework.let.sc.management.service.BlockVO" resultMap="blockList">
+		
+		SELECT t.*
+		FROM	
+			(SELECT BLOCKNUM AS blockNum
+				, ( SELECT 	COALESCE(NAME, '') AS channelName
+					FROM CHANNEL  
+					WHERE BLOCKS.CHANNEL_GENESIS_HASH = CHANNEL.CHANNEL_GENESIS_HASH )
+                 , TXCOUNT AS txCount
+                 , COALESCE(DATAHASH, '') AS dataHash
+                 , COALESCE(BLOCKHASH, '') AS blockHash
+                 , COALESCE(PREHASH, '') AS preHash
+                 , ( SELECT COALESCE(TXHASH, '') AS txHash
+					FROM TRANSACTIONS  
+					WHERE BLOCKS.BLOCKNUM = TRANSACTIONS.BLOCKID ORDER BY ID DESC LIMIT 1  )
+                 , BLKSIZE AS blkSize
+                 , (SELECT COALESCE(CREATOR_MSP_ID , '') as orgName
+						FROM TRANSACTIONS  
+						WHERE BLOCKS.BLOCKNUM = TRANSACTIONS.BLOCKID ORDER BY ID DESC LIMIT 1  )
+            FROM BLOCKS  
+	
+			WHERE (CREATEDT + INTERVAL '9 HOUR') BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
+	<if test="searchWrd3 != null and !searchWrd3.equals('')">
+			AND TO_CHAR(BLOCKNUM, '9999') LIKE '%' || #{searchWrd3} || '%'
+	</if>
+	<if test="searchWrd5 != null and !searchWrd5.equals('')">
+			AND TO_CHAR(TXCOUNT, '9999') LIKE '%' || #{searchWrd5} || '%'
+	</if>
+			AND DATAHASH LIKE '%' || #{searchWrd6} || '%'
+			AND BLOCKHASH LIKE '%' || #{searchWrd7} || '%'
+			AND PREHASH LIKE '%' || #{searchWrd8} || '%'
+	<if test="searchWrd10 != null and !searchWrd10.equals('')">		
+			AND TO_CHAR(BLKSIZE, '9999') LIKE '%' || #{searchWrd10} || '%'
+	</if>
+			) t
+		
+		<if test="searchWrd21 != null">	
+				WHERE ( t.orgName LIKE '%' || #{searchWrd21} || '%' 	
+		</if>
+		<if test="searchWrd22 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd22} || '%' 	
+		</if>
+		<if test="searchWrd23 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd23} || '%' 	
+		</if>
+		<if test="searchWrd24 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd24} || '%' 	
+		</if>
+		<if test="searchWrd25 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd25} || '%' 	
+		</if>
+		<if test="searchWrd26 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd26} || '%' 	
+		</if>
+		<if test="searchWrd27 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd27} || '%' 	
+		</if>
+		<if test="searchWrd28 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd28} || '%' 	
+		</if>
+		<if test="searchWrd29 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd29} || '%' 	
+		</if>
+		
+		<if test="searchWrd21 == null">	
+				WHERE t.channelName LIKE '%' || #{searchWrd4} || '%'  	
+		</if>
+		<if test="searchWrd21 != null">		
+				) AND t.channelName LIKE '%' || #{searchWrd4} || '%'  	
+		</if>
+		
+				AND txHash LIKE '%' || #{searchWrd9} || '%'
+		
+		ORDER BY blockNum DESC		
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		
+	</select>	
+	
+	
+	<select id="selectBlockListCnt" parameterType="egovframework.let.sc.management.service.BlockVO" resultType="java.lang.Integer">
+		
+		SELECT count(*)
+		FROM	
+			(SELECT BLOCKNUM AS blockNum
+				, ( SELECT 	COALESCE(NAME, '') AS channelName
+					FROM CHANNEL  
+					WHERE BLOCKS.CHANNEL_GENESIS_HASH = CHANNEL.CHANNEL_GENESIS_HASH )
+                 , TXCOUNT AS txCount
+                 , COALESCE(DATAHASH, '') AS dataHash
+                 , COALESCE(BLOCKHASH, '') AS blockHash
+                 , COALESCE(PREHASH, '') AS preHash
+                 , ( SELECT COALESCE(TXHASH, '') AS txHash
+					FROM TRANSACTIONS  
+					WHERE BLOCKS.BLOCKNUM = TRANSACTIONS.BLOCKID ORDER BY ID DESC LIMIT 1 )
+                 , BLKSIZE AS blkSize
+                 , (SELECT COALESCE(CREATOR_MSP_ID , '') as orgName
+						FROM TRANSACTIONS  
+						WHERE BLOCKS.BLOCKNUM = TRANSACTIONS.BLOCKID ORDER BY ID DESC LIMIT 1 )
+            FROM BLOCKS  
+	
+			WHERE (CREATEDT + INTERVAL '9 HOUR') BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
+	<if test="searchWrd3 != null and !searchWrd3.equals('')">
+			AND TO_CHAR(BLOCKNUM, '9999') LIKE '%' || #{searchWrd3} || '%'
+	</if>
+	<if test="searchWrd5 != null and !searchWrd5.equals('')">
+			AND TO_CHAR(TXCOUNT, '9999') LIKE '%' || #{searchWrd5} || '%'
+	</if>
+			AND DATAHASH LIKE '%' || #{searchWrd6} || '%'
+			AND BLOCKHASH LIKE '%' || #{searchWrd7} || '%'
+			AND PREHASH LIKE '%' || #{searchWrd8} || '%'
+	<if test="searchWrd10 != null and !searchWrd10.equals('')">		
+			AND TO_CHAR(BLKSIZE, '9999') LIKE '%' || #{searchWrd10} || '%'
+	</if>
+			) t
+		
+		<if test="searchWrd21 != null">	
+				WHERE ( t.orgName LIKE '%' || #{searchWrd21} || '%' 	
+		</if>
+		<if test="searchWrd22 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd22} || '%' 	
+		</if>
+		<if test="searchWrd23 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd23} || '%' 	
+		</if>
+		<if test="searchWrd24 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd24} || '%' 	
+		</if>
+		<if test="searchWrd25 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd25} || '%' 	
+		</if>
+		<if test="searchWrd26 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd26} || '%' 	
+		</if>
+		<if test="searchWrd27 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd27} || '%' 	
+		</if>
+		<if test="searchWrd28 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd28} || '%' 	
+		</if>
+		<if test="searchWrd29 != null">		
+				OR t.orgName LIKE '%' || #{searchWrd29} || '%' 	
+		</if>
+		
+		<if test="searchWrd21 == null">	
+				WHERE t.channelName LIKE '%' || #{searchWrd4} || '%'  	
+		</if>
+		<if test="searchWrd21 != null">		
+				) AND t.channelName LIKE '%' || #{searchWrd4} || '%'  	
+		</if>
+		
+				AND txHash LIKE '%' || #{searchWrd9} || '%'
+				
+				
+	</select>		
+	
+
+	<select id="selectDBlockList" parameterType="egovframework.let.sc.management.service.BlockVO" resultMap="dBlockList">
+		
+			SELECT BLOCKNUM AS blockNum
+				, ( SELECT 	COALESCE(NAME, '') AS channelName
+					FROM CHANNEL  
+					WHERE BLOCKS.CHANNEL_GENESIS_HASH = CHANNEL.CHANNEL_GENESIS_HASH )
+                 , TXCOUNT AS txCount
+                 , COALESCE(DATAHASH, '') AS dataHash
+				 , ((NOW() - INTERVAL '9 HOUR') - CREATEDT) AS dateDiff
+            FROM BLOCKS  
+			
+			ORDER BY BLOCKNUM DESC		
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		
+					
+	</select>	
+	
+	
+	<select id="selectBlockHourCntList" parameterType="egovframework.let.sc.management.service.BlockVO" resultMap="blockHourCntList">
+		
+			SELECT  
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW(), 'YYYYMMDDHH24')) AS countPerHour,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '1 HOUR', 'YYYYMMDDHH24')) AS countPerHour1,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '2 HOUR', 'YYYYMMDDHH24')) AS countPerHour2,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '3 HOUR', 'YYYYMMDDHH24')) AS countPerHour3,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '4 HOUR', 'YYYYMMDDHH24')) AS countPerHour4,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '5 HOUR', 'YYYYMMDDHH24')) AS countPerHour5,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '6 HOUR', 'YYYYMMDDHH24')) AS countPerHour6,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '7 HOUR', 'YYYYMMDDHH24')) AS countPerHour7,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '8 HOUR', 'YYYYMMDDHH24')) AS countPerHour8,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '9 HOUR', 'YYYYMMDDHH24')) AS countPerHour9,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '10 HOUR', 'YYYYMMDDHH24')) AS countPerHour10,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '11 HOUR', 'YYYYMMDDHH24')) AS countPerHour11,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '12 HOUR', 'YYYYMMDDHH24')) AS countPerHour12,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '13 HOUR', 'YYYYMMDDHH24')) AS countPerHour13,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '14 HOUR', 'YYYYMMDDHH24')) AS countPerHour14,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '15 HOUR', 'YYYYMMDDHH24')) AS countPerHour15,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '16 HOUR', 'YYYYMMDDHH24')) AS countPerHour16,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '17 HOUR', 'YYYYMMDDHH24')) AS countPerHour17,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '18 HOUR', 'YYYYMMDDHH24')) AS countPerHour18,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '19 HOUR', 'YYYYMMDDHH24')) AS countPerHour19,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '20 HOUR', 'YYYYMMDDHH24')) AS countPerHour20,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '21 HOUR', 'YYYYMMDDHH24')) AS countPerHour21,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '22 HOUR', 'YYYYMMDDHH24')) AS countPerHour22,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '23 HOUR', 'YYYYMMDDHH24')) AS countPerHour23,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '24 HOUR', 'YYYYMMDDHH24')) AS countPerHour24							
+			FROM BLOCKS
+ 					
+	</select> 
+	
+	
+	<select id="selectBlockMinCntList" parameterType="egovframework.let.sc.management.service.BlockVO" resultMap="blockMinCntList">
+		
+			SELECT  
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW(), 'YYYYMMDDHH24MI')) AS countPerMin,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '1 MIN', 'YYYYMMDDHH24MI')) AS countPerMin1,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '2 MIN', 'YYYYMMDDHH24MI')) AS countPerMin2,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '3 MIN', 'YYYYMMDDHH24MI')) AS countPerMin3,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '4 MIN', 'YYYYMMDDHH24MI')) AS countPerMin4,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '5 MIN', 'YYYYMMDDHH24MI')) AS countPerMin5,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '6 MIN', 'YYYYMMDDHH24MI')) AS countPerMin6,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '7 MIN', 'YYYYMMDDHH24MI')) AS countPerMin7,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '8 MIN', 'YYYYMMDDHH24MI')) AS countPerMin8,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '9 MIN', 'YYYYMMDDHH24MI')) AS countPerMin9,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '10 MIN', 'YYYYMMDDHH24MI')) AS countPerMin10,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '11 MIN', 'YYYYMMDDHH24MI')) AS countPerMin11,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '12 MIN', 'YYYYMMDDHH24MI')) AS countPerMin12,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '13 MIN', 'YYYYMMDDHH24MI')) AS countPerMin13,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '14 MIN', 'YYYYMMDDHH24MI')) AS countPerMin14,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '15 MIN', 'YYYYMMDDHH24MI')) AS countPerMin15,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '16 MIN', 'YYYYMMDDHH24MI')) AS countPerMin16,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '17 MIN', 'YYYYMMDDHH24MI')) AS countPerMin17,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '18 MIN', 'YYYYMMDDHH24MI')) AS countPerMin18,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '19 MIN', 'YYYYMMDDHH24MI')) AS countPerMin19,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '20 MIN', 'YYYYMMDDHH24MI')) AS countPerMin20,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '21 MIN', 'YYYYMMDDHH24MI')) AS countPerMin21,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '22 MIN', 'YYYYMMDDHH24MI')) AS countPerMin22,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '23 MIN', 'YYYYMMDDHH24MI')) AS countPerMin23,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '24 MIN', 'YYYYMMDDHH24MI')) AS countPerMin24, 
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '25 MIN', 'YYYYMMDDHH24MI')) AS countPerMin25,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '26 MIN', 'YYYYMMDDHH24MI')) AS countPerMin26,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '27 MIN', 'YYYYMMDDHH24MI')) AS countPerMin27,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '28 MIN', 'YYYYMMDDHH24MI')) AS countPerMin28,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '29 MIN', 'YYYYMMDDHH24MI')) AS countPerMin29,
+	  				COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '30 MIN', 'YYYYMMDDHH34MI')) AS countPerMin30,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '31 MIN', 'YYYYMMDDHH34MI')) AS countPerMin31,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '32 MIN', 'YYYYMMDDHH34MI')) AS countPerMin32,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '33 MIN', 'YYYYMMDDHH34MI')) AS countPerMin33,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '34 MIN', 'YYYYMMDDHH34MI')) AS countPerMin34, 
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '35 MIN', 'YYYYMMDDHH34MI')) AS countPerMin35,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '36 MIN', 'YYYYMMDDHH34MI')) AS countPerMin36,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '37 MIN', 'YYYYMMDDHH34MI')) AS countPerMin37,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '38 MIN', 'YYYYMMDDHH34MI')) AS countPerMin38,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '39 MIN', 'YYYYMMDDHH34MI')) AS countPerMin39,	
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '40 MIN', 'YYYYMMDDHH44MI')) AS countPerMin40,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '41 MIN', 'YYYYMMDDHH44MI')) AS countPerMin41,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '42 MIN', 'YYYYMMDDHH44MI')) AS countPerMin42,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '43 MIN', 'YYYYMMDDHH44MI')) AS countPerMin43,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '44 MIN', 'YYYYMMDDHH44MI')) AS countPerMin44, 
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '45 MIN', 'YYYYMMDDHH44MI')) AS countPerMin45,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '46 MIN', 'YYYYMMDDHH44MI')) AS countPerMin46,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '47 MIN', 'YYYYMMDDHH44MI')) AS countPerMin47,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '48 MIN', 'YYYYMMDDHH44MI')) AS countPerMin48,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '49 MIN', 'YYYYMMDDHH44MI')) AS countPerMin49,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '50 MIN', 'YYYYMMDDHH55MI')) AS countPerMin50,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '51 MIN', 'YYYYMMDDHH55MI')) AS countPerMin51,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '52 MIN', 'YYYYMMDDHH55MI')) AS countPerMin52,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '53 MIN', 'YYYYMMDDHH55MI')) AS countPerMin53,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '54 MIN', 'YYYYMMDDHH55MI')) AS countPerMin54, 
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '55 MIN', 'YYYYMMDDHH55MI')) AS countPerMin55,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '56 MIN', 'YYYYMMDDHH55MI')) AS countPerMin56,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '57 MIN', 'YYYYMMDDHH55MI')) AS countPerMin57,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '58 MIN', 'YYYYMMDDHH55MI')) AS countPerMin58,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '59 MIN', 'YYYYMMDDHH55MI')) AS countPerMin59							
+			FROM BLOCKS
+ 					
+	</select> 
+	
+	
+	<select id="selectBlockArticle" parameterType="egovframework.let.sc.management.service.BlockVO" resultMap="blockList">
+		
+			SELECT BLOCKNUM AS blockNum
+				, ( SELECT 	COALESCE(NAME, '') AS channelName
+					FROM CHANNEL  
+					WHERE BLOCKS.CHANNEL_GENESIS_HASH = CHANNEL.CHANNEL_GENESIS_HASH )
+                 , TXCOUNT AS txCount
+                 , COALESCE(DATAHASH, '') AS dataHash
+                 , COALESCE(BLOCKHASH, '') AS blockHash
+                 , COALESCE(PREHASH, '') AS preHash
+                 , (CREATEDT + INTERVAL '9 HOUR') AS createDt     
+             FROM BLOCKS
+             WHERE BLOCKNUM = #{blockNum}
+ 			
+	</select>
+	
+	
+	<select id="selectTransactionList" parameterType="egovframework.let.sc.management.service.TransactionVO" resultMap="transactionList">
+	
+		SELECT t.*
+		FROM	
+			(SELECT COALESCE(CREATOR_MSP_ID, '') AS creatorMspId
+				 , BLOCKID as blockId
+				 , ( SELECT 	COALESCE(NAME, '') AS channelName
+					FROM CHANNEL  
+					WHERE TRANSACTIONS.CHANNEL_GENESIS_HASH = CHANNEL.CHANNEL_GENESIS_HASH )
+                 , COALESCE(TXHASH, '') AS txHash
+                 , COALESCE(TYPE, '') AS type
+                 , COALESCE(CHAINCODENAME, '') AS chaincodeName
+                 , (CREATEDT + INTERVAL '9 HOUR') AS createDt     
+             FROM TRANSACTIONS
+	
+			WHERE (CREATEDT + INTERVAL '9 HOUR') BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
+	<if test="searchWrd21 != null ">	
+			AND ( CREATOR_MSP_ID LIKE '%' || #{searchWrd21} || '%' 	
+	</if>
+	<if test="searchWrd22 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd22} || '%' 	
+	</if>
+	<if test="searchWrd23 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd23} || '%' 	
+	</if>
+	<if test="searchWrd24 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd24} || '%' 	
+	</if>
+	<if test="searchWrd25 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd25} || '%' 	
+	</if>
+	<if test="searchWrd26 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd26} || '%' 	
+	</if>
+	<if test="searchWrd27 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd27} || '%' 	
+	</if>
+	<if test="searchWrd28 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd28} || '%' 	
+	</if>
+	<if test="searchWrd29 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd29} || '%' 	
+	</if>
+	
+	<if test="searchWrd21 != null ">
+			)
+	</if>		
+			AND CREATOR_MSP_ID LIKE '%' || #{searchWrd3} || '%'
+			AND TXHASH LIKE '%' || #{searchWrd5} || '%'
+			AND TYPE LIKE '%' || #{searchWrd6} || '%'
+			AND CHAINCODENAME LIKE '%' || #{searchWrd7} || '%'
+	<if test="searchWrd8 != null and !searchWrd8.equals('')">
+			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd8} || '%'
+	</if>
+			) t
+		
+			WHERE t.channelName LIKE '%' || #{searchWrd4} || '%' 	
+		
+		ORDER BY blockId DESC		
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+	
+						
+	</select>	
+	
+	
+	<select id="selectTransactionListCnt" parameterType="egovframework.let.sc.management.service.TransactionVO" resultType="java.lang.Integer">
+		
+		SELECT COUNT(*)
+		FROM	
+			(SELECT COALESCE(CREATOR_MSP_ID, '') AS creatorMspId
+				 , ( SELECT 	COALESCE(NAME, '') AS channelName
+					FROM CHANNEL  
+					WHERE TRANSACTIONS.CHANNEL_GENESIS_HASH = CHANNEL.CHANNEL_GENESIS_HASH )
+                 , COALESCE(TXHASH, '') AS txHash
+                 , COALESCE(TYPE, '') AS type
+                 , COALESCE(CHAINCODENAME, '') AS chaincodeName
+                 , CREATEDT AS createDt     
+             FROM TRANSACTIONS
+	
+			WHERE (CREATEDT + INTERVAL '9 HOUR') BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
+	<if test="searchWrd21 != null ">	
+			AND ( CREATOR_MSP_ID LIKE '%' || #{searchWrd21} || '%' 	
+	</if>
+	<if test="searchWrd22 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd22} || '%' 	
+	</if>
+	<if test="searchWrd23 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd23} || '%' 	
+	</if>
+	<if test="searchWrd24 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd24} || '%' 	
+	</if>
+	<if test="searchWrd25 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd25} || '%' 	
+	</if>
+	<if test="searchWrd26 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd26} || '%' 	
+	</if>
+	<if test="searchWrd27 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd27} || '%' 	
+	</if>
+	<if test="searchWrd28 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd28} || '%' 	
+	</if>
+	<if test="searchWrd29 != null ">		
+			OR CREATOR_MSP_ID LIKE '%' || #{searchWrd29} || '%' 	
+	</if>
+	
+	<if test="searchWrd21 != null ">
+			)
+	</if>		
+			AND CREATOR_MSP_ID LIKE '%' || #{searchWrd3} || '%'
+			AND TXHASH LIKE '%' || #{searchWrd5} || '%'
+			AND TYPE LIKE '%' || #{searchWrd6} || '%'
+			AND CHAINCODENAME LIKE '%' || #{searchWrd7} || '%'
+	<if test="searchWrd8 != null and !searchWrd8.equals('')">
+			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd8} || '%'
+	</if>
+			) t
+		
+			WHERE t.channelName LIKE '%' || #{searchWrd4} || '%'  	
+		
+	
+				
+	</select>	
+
+
+	<select id="selectTransactionHourCntList" parameterType="egovframework.let.sc.management.service.TransactionVO" resultMap="transactionHourCntList">
+		
+			SELECT  
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW(), 'YYYYMMDDHH24')) AS countPerHour,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '1 HOUR', 'YYYYMMDDHH24')) AS countPerHour1,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '2 HOUR', 'YYYYMMDDHH24')) AS countPerHour2,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '3 HOUR', 'YYYYMMDDHH24')) AS countPerHour3,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '4 HOUR', 'YYYYMMDDHH24')) AS countPerHour4,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '5 HOUR', 'YYYYMMDDHH24')) AS countPerHour5,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '6 HOUR', 'YYYYMMDDHH24')) AS countPerHour6,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '7 HOUR', 'YYYYMMDDHH24')) AS countPerHour7,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '8 HOUR', 'YYYYMMDDHH24')) AS countPerHour8,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '9 HOUR', 'YYYYMMDDHH24')) AS countPerHour9,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '10 HOUR', 'YYYYMMDDHH24')) AS countPerHour10,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '11 HOUR', 'YYYYMMDDHH24')) AS countPerHour11,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '12 HOUR', 'YYYYMMDDHH24')) AS countPerHour12,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '13 HOUR', 'YYYYMMDDHH24')) AS countPerHour13,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '14 HOUR', 'YYYYMMDDHH24')) AS countPerHour14,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '15 HOUR', 'YYYYMMDDHH24')) AS countPerHour15,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '16 HOUR', 'YYYYMMDDHH24')) AS countPerHour16,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '17 HOUR', 'YYYYMMDDHH24')) AS countPerHour17,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '18 HOUR', 'YYYYMMDDHH24')) AS countPerHour18,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '19 HOUR', 'YYYYMMDDHH24')) AS countPerHour19,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '20 HOUR', 'YYYYMMDDHH24')) AS countPerHour20,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '21 HOUR', 'YYYYMMDDHH24')) AS countPerHour21,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '22 HOUR', 'YYYYMMDDHH24')) AS countPerHour22,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '23 HOUR', 'YYYYMMDDHH24')) AS countPerHour23,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT + INTERVAL '9 HOUR', 'YYYYMMDDHH24') = TO_CHAR(NOW() - INTERVAL '24 HOUR', 'YYYYMMDDHH24')) AS countPerHour24,
+  					TO_CHAR(NOW(), 'HH PM') AS curHour,  					
+  					TO_CHAR(NOW() - INTERVAL '1 HOUR', 'HH PM') AS curHour1,  					
+  					TO_CHAR(NOW() - INTERVAL '2 HOUR', 'HH PM') AS curHour2,
+  					TO_CHAR(NOW() - INTERVAL '3 HOUR', 'HH PM') AS curHour3,
+  					TO_CHAR(NOW() - INTERVAL '4 HOUR', 'HH PM') AS curHour4,
+  					TO_CHAR(NOW() - INTERVAL '5 HOUR', 'HH PM') AS curHour5,	
+  					TO_CHAR(NOW() - INTERVAL '6 HOUR', 'HH PM') AS curHour6,			
+  					TO_CHAR(NOW() - INTERVAL '7 HOUR', 'HH PM') AS curHour7,  					
+  					TO_CHAR(NOW() - INTERVAL '8 HOUR', 'HH PM') AS curHour8,
+  					TO_CHAR(NOW() - INTERVAL '9 HOUR', 'HH PM') AS curHour9,
+  					TO_CHAR(NOW() - INTERVAL '10 HOUR', 'HH PM') AS curHour10,
+   					TO_CHAR(NOW() - INTERVAL '11 HOUR', 'HH PM') AS curHour11,  					
+  					TO_CHAR(NOW() - INTERVAL '12 HOUR', 'HH PM') AS curHour12,
+  					TO_CHAR(NOW() - INTERVAL '13 HOUR', 'HH PM') AS curHour13,
+  					TO_CHAR(NOW() - INTERVAL '14 HOUR', 'HH PM') AS curHour14,
+  					TO_CHAR(NOW() - INTERVAL '15 HOUR', 'HHH PM') AS curHour15,	
+  					TO_CHAR(NOW() - INTERVAL '16 HOUR', 'HH PM') AS curHour16,			
+  					TO_CHAR(NOW() - INTERVAL '17 HOUR', 'HH PM') AS curHour17,  					
+  					TO_CHAR(NOW() - INTERVAL '18 HOUR', 'HH PM') AS curHour18,
+  					TO_CHAR(NOW() - INTERVAL '19 HOUR', 'HH PM') AS curHour19,
+  					TO_CHAR(NOW() - INTERVAL '20 HOUR', 'HH PM') AS curHour20, 	
+  					TO_CHAR(NOW() - INTERVAL '21 HOUR', 'HH PM') AS curHour21,  					
+  					TO_CHAR(NOW() - INTERVAL '22 HOUR', 'HH PMM') AS curHour22,
+  					TO_CHAR(NOW() - INTERVAL '23 HOUR', 'HH PM') AS curHour23,
+  					TO_CHAR(NOW() - INTERVAL '24 HOUR', 'HH PM') AS curHour24								
+			FROM TRANSACTIONS
+ 					
+	</select> 
+	
+
+	<select id="selectTransactionMinCntList" parameterType="egovframework.let.sc.management.service.TransactionVO" resultMap="transactionMinCntList">
+		
+			SELECT  
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW(), 'YYYYMMDDHH24MI')) AS countPerMin,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '1 MIN', 'YYYYMMDDHH24MI')) AS countPerMin1,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '2 MIN', 'YYYYMMDDHH24MI')) AS countPerMin2,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '3 MIN', 'YYYYMMDDHH24MI')) AS countPerMin3,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '4 MIN', 'YYYYMMDDHH24MI')) AS countPerMin4,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '5 MIN', 'YYYYMMDDHH24MI')) AS countPerMin5,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '6 MIN', 'YYYYMMDDHH24MI')) AS countPerMin6,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '7 MIN', 'YYYYMMDDHH24MI')) AS countPerMin7,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '8 MIN', 'YYYYMMDDHH24MI')) AS countPerMin8,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '9 MIN', 'YYYYMMDDHH24MI')) AS countPerMin9,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '10 MIN', 'YYYYMMDDHH24MI')) AS countPerMin10,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '11 MIN', 'YYYYMMDDHH24MI')) AS countPerMin11,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '12 MIN', 'YYYYMMDDHH24MI')) AS countPerMin12,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '13 MIN', 'YYYYMMDDHH24MI')) AS countPerMin13,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '14 MIN', 'YYYYMMDDHH24MI')) AS countPerMin14,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '15 MIN', 'YYYYMMDDHH24MI')) AS countPerMin15,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '16 MIN', 'YYYYMMDDHH24MI')) AS countPerMin16,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '17 MIN', 'YYYYMMDDHH24MI')) AS countPerMin17,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '18 MIN', 'YYYYMMDDHH24MI')) AS countPerMin18,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '19 MIN', 'YYYYMMDDHH24MI')) AS countPerMin19,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '20 MIN', 'YYYYMMDDHH24MI')) AS countPerMin20,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '21 MIN', 'YYYYMMDDHH24MI')) AS countPerMin21,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '22 MIN', 'YYYYMMDDHH24MI')) AS countPerMin22,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '23 MIN', 'YYYYMMDDHH24MI')) AS countPerMin23,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '24 MIN', 'YYYYMMDDHH24MI')) AS countPerMin24, 
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '25 MIN', 'YYYYMMDDHH24MI')) AS countPerMin25,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '26 MIN', 'YYYYMMDDHH24MI')) AS countPerMin26,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '27 MIN', 'YYYYMMDDHH24MI')) AS countPerMin27,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '28 MIN', 'YYYYMMDDHH24MI')) AS countPerMin28,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH24MI') = TO_CHAR(NOW() - INTERVAL '29 MIN', 'YYYYMMDDHH24MI')) AS countPerMin29,
+	  				COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '30 MIN', 'YYYYMMDDHH34MI')) AS countPerMin30,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '31 MIN', 'YYYYMMDDHH34MI')) AS countPerMin31,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '32 MIN', 'YYYYMMDDHH34MI')) AS countPerMin32,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '33 MIN', 'YYYYMMDDHH34MI')) AS countPerMin33,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '34 MIN', 'YYYYMMDDHH34MI')) AS countPerMin34, 
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '35 MIN', 'YYYYMMDDHH34MI')) AS countPerMin35,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '36 MIN', 'YYYYMMDDHH34MI')) AS countPerMin36,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '37 MIN', 'YYYYMMDDHH34MI')) AS countPerMin37,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '38 MIN', 'YYYYMMDDHH34MI')) AS countPerMin38,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH34MI') = TO_CHAR(NOW() - INTERVAL '39 MIN', 'YYYYMMDDHH34MI')) AS countPerMin39,	
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '40 MIN', 'YYYYMMDDHH44MI')) AS countPerMin40,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '41 MIN', 'YYYYMMDDHH44MI')) AS countPerMin41,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '42 MIN', 'YYYYMMDDHH44MI')) AS countPerMin42,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '43 MIN', 'YYYYMMDDHH44MI')) AS countPerMin43,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '44 MIN', 'YYYYMMDDHH44MI')) AS countPerMin44, 
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '45 MIN', 'YYYYMMDDHH44MI')) AS countPerMin45,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '46 MIN', 'YYYYMMDDHH44MI')) AS countPerMin46,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '47 MIN', 'YYYYMMDDHH44MI')) AS countPerMin47,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '48 MIN', 'YYYYMMDDHH44MI')) AS countPerMin48,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH44MI') = TO_CHAR(NOW() - INTERVAL '49 MIN', 'YYYYMMDDHH44MI')) AS countPerMin49,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '50 MIN', 'YYYYMMDDHH55MI')) AS countPerMin50,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '51 MIN', 'YYYYMMDDHH55MI')) AS countPerMin51,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '52 MIN', 'YYYYMMDDHH55MI')) AS countPerMin52,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '53 MIN', 'YYYYMMDDHH55MI')) AS countPerMin53,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '54 MIN', 'YYYYMMDDHH55MI')) AS countPerMin54, 
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '55 MIN', 'YYYYMMDDHH55MI')) AS countPerMin55,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '56 MIN', 'YYYYMMDDHH55MI')) AS countPerMin56,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '57 MIN', 'YYYYMMDDHH55MI')) AS countPerMin57,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '58 MIN', 'YYYYMMDDHH55MI')) AS countPerMin58,
+  					COUNT(*) FILTER (WHERE TO_CHAR(CREATEDT, 'YYYYMMDDHH55MI') = TO_CHAR(NOW() - INTERVAL '59 MIN', 'YYYYMMDDHH55MI')) AS countPerMin59,
+  					TO_CHAR(NOW(), 'MI') AS curMin,  					
+  					TO_CHAR(NOW() - INTERVAL '1 MIN', 'MI') AS curMin1,  					
+  					TO_CHAR(NOW() - INTERVAL '2 MIN', 'MI') AS curMin2,
+  					TO_CHAR(NOW() - INTERVAL '3 MIN', 'MI') AS curMin3,
+  					TO_CHAR(NOW() - INTERVAL '4 MIN', 'MI') AS curMin4,
+  					TO_CHAR(NOW() - INTERVAL '5 MIN', 'MI') AS curMin5,	
+  					TO_CHAR(NOW() - INTERVAL '6 MIN', 'MI') AS curMin6,			
+  					TO_CHAR(NOW() - INTERVAL '7 MIN', 'MI') AS curMin7,  					
+  					TO_CHAR(NOW() - INTERVAL '8 MIN', 'MI') AS curMin8,
+  					TO_CHAR(NOW() - INTERVAL '9 MIN', 'MI') AS curMin9,
+  					TO_CHAR(NOW() - INTERVAL '10 MIN', 'MI') AS curMin10,
+   					TO_CHAR(NOW() - INTERVAL '11 MIN', 'MI') AS curMin11,  					
+  					TO_CHAR(NOW() - INTERVAL '12 MIN', 'MI') AS curMin12,
+  					TO_CHAR(NOW() - INTERVAL '13 MIN', 'MI') AS curMin13,
+  					TO_CHAR(NOW() - INTERVAL '14 MIN', 'MI') AS curMin14,
+  					TO_CHAR(NOW() - INTERVAL '15 MIN', 'MI') AS curMin15,	
+  					TO_CHAR(NOW() - INTERVAL '16 MIN', 'MI') AS curMin16,			
+  					TO_CHAR(NOW() - INTERVAL '17 MIN', 'MI') AS curMin17,  					
+  					TO_CHAR(NOW() - INTERVAL '18 MIN', 'MI') AS curMin18,
+  					TO_CHAR(NOW() - INTERVAL '19 MIN', 'MI') AS curMin19,
+  					TO_CHAR(NOW() - INTERVAL '20 MIN', 'MI') AS curMin20, 	
+  					TO_CHAR(NOW() - INTERVAL '21 MIN', 'MI') AS curMin21,  					
+  					TO_CHAR(NOW() - INTERVAL '22 MIN', 'MI') AS curMin22,
+  					TO_CHAR(NOW() - INTERVAL '23 MIN', 'MI') AS curMin23,
+  					TO_CHAR(NOW() - INTERVAL '24 MIN', 'MI') AS curMin24,	
+  					TO_CHAR(NOW() - INTERVAL '25 MIN', 'MI') AS curMin25,	
+  					TO_CHAR(NOW() - INTERVAL '26 MIN', 'MI') AS curMin26,			
+  					TO_CHAR(NOW() - INTERVAL '27 MIN', 'MI') AS curMin27,  					
+  					TO_CHAR(NOW() - INTERVAL '28 MIN', 'MI') AS curMin28,
+  					TO_CHAR(NOW() - INTERVAL '29 MIN', 'MI') AS curMin29,		
+  					TO_CHAR(NOW() - INTERVAL '30 MIN', 'MI') AS curMin30, 	
+  					TO_CHAR(NOW() - INTERVAL '31 MIN', 'MI') AS curMin31,  					
+  					TO_CHAR(NOW() - INTERVAL '32 MIN', 'MI') AS curMin32,
+  					TO_CHAR(NOW() - INTERVAL '33 MIN', 'MI') AS curMin33,
+  					TO_CHAR(NOW() - INTERVAL '34 MIN', 'MI') AS curMin34,	
+  					TO_CHAR(NOW() - INTERVAL '35 MIN', 'MI') AS curMin35,	
+  					TO_CHAR(NOW() - INTERVAL '36 MIN', 'MI') AS curMin36,			
+  					TO_CHAR(NOW() - INTERVAL '37 MIN', 'MI') AS curMin37,  					
+  					TO_CHAR(NOW() - INTERVAL '38 MIN', 'MI') AS curMin38,
+  					TO_CHAR(NOW() - INTERVAL '39 MIN', 'MI') AS curMin39,		
+  					TO_CHAR(NOW() - INTERVAL '40 MIN', 'MI') AS curMin40, 	
+  					TO_CHAR(NOW() - INTERVAL '41 MIN', 'MI') AS curMin41,  					
+  					TO_CHAR(NOW() - INTERVAL '42 MIN', 'MI') AS curMin42,
+  					TO_CHAR(NOW() - INTERVAL '43 MIN', 'MI') AS curMin43,
+  					TO_CHAR(NOW() - INTERVAL '44 MIN', 'MI') AS curMin44,	
+  					TO_CHAR(NOW() - INTERVAL '45 MIN', 'MI') AS curMin45,	
+  					TO_CHAR(NOW() - INTERVAL '46 MIN', 'MI') AS curMin46,			
+  					TO_CHAR(NOW() - INTERVAL '47 MIN', 'MI') AS curMin47,  					
+  					TO_CHAR(NOW() - INTERVAL '48 MIN', 'MI') AS curMin48,
+  					TO_CHAR(NOW() - INTERVAL '49 MIN', 'MI') AS curMin49,	
+  					TO_CHAR(NOW() - INTERVAL '50 MIN', 'MI') AS curMin50, 	
+  					TO_CHAR(NOW() - INTERVAL '51 MIN', 'MI') AS curMin51,  					
+  					TO_CHAR(NOW() - INTERVAL '52 MIN', 'MI') AS curMin52,
+  					TO_CHAR(NOW() - INTERVAL '53 MIN', 'MI') AS curMin53,
+  					TO_CHAR(NOW() - INTERVAL '54 MIN', 'MI') AS curMin54,	
+  					TO_CHAR(NOW() - INTERVAL '55 MIN', 'MI') AS curMin55,	
+  					TO_CHAR(NOW() - INTERVAL '56 MIN', 'MI') AS curMin56,			
+  					TO_CHAR(NOW() - INTERVAL '57 MIN', 'MI') AS curMin57,  					
+  					TO_CHAR(NOW() - INTERVAL '58 MIN', 'MI') AS curMin58,
+  					TO_CHAR(NOW() - INTERVAL '59 MIN', 'MI') AS curMin59								
+			FROM TRANSACTIONS
+ 					
+	</select> 
+	
+
+	<select id="selectTransactionArticle" parameterType="egovframework.let.sc.management.service.TransactionVO" resultMap="transactionList">
+		
+			SELECT COALESCE(TXHASH, '') AS txHash
+				 , COALESCE(VALIDATION_CODE, '') AS validationCode
+				 , COALESCE(PAYLOAD_PROPOSAL_HASH, '') AS payloadProposalHash
+				 , COALESCE(CREATOR_MSP_ID, '') AS creatorMspId
+				 , COALESCE(ENDORSER_MSP_ID, '') AS endorserMspId
+				 , COALESCE(CHAINCODENAME, '') AS chaincodeName
+                 , COALESCE(TYPE, '') AS type          
+                 , (CREATEDT + INTERVAL '9 HOUR') AS createDt     
+              FROM TRANSACTIONS
+             WHERE TXHASH = #{txHash}
+ 			
+	</select> 
+
+
+ 	<select id="selectChaincodeList" parameterType="egovframework.let.sc.management.service.ChaincodeVO" resultMap="chaincodeList">
+		
+		SELECT t.*
+		FROM	
+			(SELECT ID AS id
+				, COALESCE(NAME, '') AS name
+				, ( SELECT 	COALESCE(NAME, '') AS channelName
+					FROM CHANNEL  
+					WHERE CHAINCODES.CHANNEL_GENESIS_HASH = CHANNEL.CHANNEL_GENESIS_HASH )
+                 , COALESCE(PATH, '') AS path
+                 , TXCOUNT AS txCount
+                 , COALESCE(VERSION, '') AS version
+              FROM CHAINCODES
+             
+             
+            	WHERE NAME LIKE '%' || #{searchWrd3} || '%'
+ 				AND PATH LIKE '%' || #{searchWrd5} || '%'
+ 				AND TO_CHAR(TXCOUNT, '9999') LIKE '%' || #{searchWrd6} || '%'
+ 				AND VERSION LIKE '%' || #{searchWrd7} || '%'
+			) t
+		
+			WHERE t.channelName LIKE '%' || #{searchWrd4} || '%'		
+
+			ORDER BY id DESC		
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		
+					
+	</select>	
+	
+	
+	<select id="selectChaincodeListCnt" parameterType="egovframework.let.sc.management.service.ChaincodeVO" resultType="java.lang.Integer">
+		
+		SELECT count(*)
+		FROM	
+			(SELECT ID AS id
+				, COALESCE(NAME, '') AS name
+				, ( SELECT 	COALESCE(NAME, '') AS channelName
+					FROM CHANNEL  
+					WHERE CHAINCODES.CHANNEL_GENESIS_HASH = CHANNEL.CHANNEL_GENESIS_HASH )
+                 , COALESCE(PATH, '') AS path
+                 , TXCOUNT AS txCount
+                 , COALESCE(VERSION, '') AS version
+              FROM CHAINCODES
+             
+             
+            	WHERE NAME LIKE '%' || #{searchWrd3} || '%'
+ 				AND PATH LIKE '%' || #{searchWrd5} || '%'
+ 				AND TO_CHAR(TXCOUNT, '9999') LIKE '%' || #{searchWrd6} || '%'
+ 				AND VERSION LIKE '%' || #{searchWrd7} || '%'
+			) t
+		
+			WHERE t.channelName LIKE '%' || #{searchWrd4} || '%'			
+				
+				
+	</select>	
+		
+
+	<select id="selectChannelList" parameterType="egovframework.let.sc.management.service.ChannelVO" resultMap="channelList">
+		
+			SELECT ID AS id
+				 , COALESCE(NAME, '') AS name
+                 , BLOCKS AS blocksCnt
+                 , TRANS AS transCnt 
+                 , (CREATEDT + INTERVAL '9 HOUR') AS createDt    
+            FROM CHANNEL
+              
+            WHERE TO_CHAR(ID, '9999') LIKE '%' || #{searchWrd3} || '%'
+            AND NAME LIKE '%' || #{searchWrd4} || '%'
+ 			AND TO_CHAR(BLOCKS, '9999') LIKE '%' || #{searchWrd5} || '%'
+ 			AND TO_CHAR(TRANS, '9999') LIKE '%' || #{searchWrd6} || '%'
+ 			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd7} || '%'
+             
+			ORDER BY ID DESC		
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		
+					
+	</select>	
+	
+	
+	<select id="selectChannelListCnt" parameterType="egovframework.let.sc.management.service.ChannelVO" resultType="java.lang.Integer">
+		
+			SELECT
+				COUNT(ID) 
+			FROM
+				CHANNEL		
+				
+            WHERE TO_CHAR(ID, '9999') LIKE '%' || #{searchWrd3} || '%'
+            AND NAME LIKE '%' || #{searchWrd4} || '%'
+ 			AND TO_CHAR(BLOCKS, '9999') LIKE '%' || #{searchWrd5} || '%'
+ 			AND TO_CHAR(TRANS, '9999') LIKE '%' || #{searchWrd6} || '%'
+ 			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd7} || '%'
+						
+				
+	</select>
+
+
+	<select id="selectBlockCount" parameterType="egovframework.let.sc.management.service.BlockVO" resultType="java.lang.Integer">
+		
+			SELECT
+				COUNT(ID) 
+			FROM
+				BLOCKS		
+																			
+	</select>	
+
+
+	<select id="selectTransactionCount" parameterType="egovframework.let.sc.management.service.TransactionVO" resultType="java.lang.Integer">
+		
+			SELECT
+				COUNT(ID)
+			FROM
+				TRANSACTIONS		
+																			
+	</select>	
+	
+	
+	<select id="selectTransactionCMspIdCntList" parameterType="egovframework.let.sc.management.service.TransactionVO" resultMap="transactionCMspIdCntList">
+		
+			SELECT COALESCE(CREATOR_MSP_ID, '') AS creatorMspId
+				 , COUNT(*) AS countCMspId
+			FROM 
+				TRANSACTIONS
+			GROUP BY CREATOR_MSP_ID
+		
+ 					
+	</select> 
+	
+	<select id="selectTransactionCMspIdList" parameterType="egovframework.let.sc.management.service.TransactionVO" resultMap="transactionCMspIdCntList">
+		
+			SELECT DISTINCT COALESCE(CREATOR_MSP_ID, '') AS creatorMspId
+			FROM 
+				TRANSACTIONS
+ 					
+	</select> 
+	
+	
+	<select id="selectTransactionCMspIdCntListCount" parameterType="egovframework.let.sc.management.service.TransactionVO" resultType="java.lang.Integer">
+		
+			SELECT COUNT(1) 
+  			FROM (
+				SELECT CREATOR_MSP_ID, COUNT(1) 
+				FROM TRANSACTIONS
+				GROUP BY CREATOR_MSP_ID
+			) t
+ 					
+	</select>
+	
+	
+	<select id="selectChaincodeCount" parameterType="egovframework.let.sc.management.service.ChaincodeVO" resultType="java.lang.Integer">
+		
+			SELECT
+				COUNT(ID)
+			FROM
+				CHAINCODES		
+																			
+	</select>	
+
+
+</mapper>
