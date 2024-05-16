@@ -16,7 +16,7 @@
 					%-5level [%d{yyyy-MM-dd HH:mm:ss}] [%X{req.session_id}] [%-60(%class{0}.%method\(\):%line)] %m%n
 				</pattern>
 			</encoder>
-			<file>./logs/nh-sto.log</file>
+			<file>./logs/nh-sto-be.log</file>
 			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 				<fileNamePattern>./logs/nh-sto-be-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
 				<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
