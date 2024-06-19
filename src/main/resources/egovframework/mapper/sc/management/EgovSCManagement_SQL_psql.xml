@@ -1125,6 +1125,7 @@
 			FROM 
 				TRANSACTIONS
 			GROUP BY CREATOR_MSP_ID
+			ORDER BY CREATOR_MSP_ID
 		
  					
 	</select> 

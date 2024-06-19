@@ -488,7 +488,6 @@ public class EgovSCManagementManageAPIController {
 		return resultVO;
 	}	
 		
-
 	
 	
 	/**
