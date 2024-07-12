@@ -341,6 +341,7 @@ public class EgovSCManagementManageAPIController {
 		*/
 	
 //		System.out.println("++++++++++++++++++++++"+transactionVO.getSearchCnd()+" "+transactionVO.getSearchWrd()+" "+transactionVO.getSearchWrd1());
+//		System.out.println("++++++++++++++++++++++"+transactionVO.getSearchWrd8());
 		Map<String, Object> resultMap = scManagementMngService.selectTransactionList(transactionVO);
 
 		int totCnt = Integer.parseInt((String)resultMap.get("resultCnt"));
@@ -481,9 +482,10 @@ public class EgovSCManagementManageAPIController {
 		resultVO.setResultMessage(ResponseCode.SUCCESS.getMessage());
 		resultVO.setResult(resultMap);
 
-		ObjectMapper objectMapper = new ObjectMapper();
-		String resultVOJson = objectMapper.writeValueAsString(resultVO);
-		System.out.println(resultVOJson);
+//		System.out.println("++++++++++++ channelVO {} : "+channelVO)
+//		ObjectMapper objectMapper = new ObjectMapper();
+//		String resultVOJson = objectMapper.writeValueAsString(resultVO);
+//		System.out.println(resultVOJson);
 		
 		return resultVO;
 	}	

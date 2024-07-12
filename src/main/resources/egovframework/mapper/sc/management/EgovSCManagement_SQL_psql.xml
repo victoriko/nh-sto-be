@@ -402,7 +402,7 @@
 						WHERE BLOCKS.BLOCKNUM = TRANSACTIONS.BLOCKID ORDER BY ID DESC LIMIT 1  )
             FROM BLOCKS  
 	
-			WHERE (CREATEDT + INTERVAL '9 HOUR') BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
+			WHERE (CREATEDT) BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
 	<if test="searchWrd3 != null and !searchWrd3.equals('')">
 			AND TO_CHAR(BLOCKNUM, '9999') LIKE '%' || #{searchWrd3} || '%'
 	</if>
@@ -481,7 +481,7 @@
 						WHERE BLOCKS.BLOCKNUM = TRANSACTIONS.BLOCKID ORDER BY ID DESC LIMIT 1 )
             FROM BLOCKS  
 	
-			WHERE (CREATEDT + INTERVAL '9 HOUR') BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
+			WHERE (CREATEDT) BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
 	<if test="searchWrd3 != null and !searchWrd3.equals('')">
 			AND TO_CHAR(BLOCKNUM, '9999') LIKE '%' || #{searchWrd3} || '%'
 	</if>
@@ -688,7 +688,7 @@
                  , (CREATEDT + INTERVAL '9 HOUR') AS createDt     
              FROM TRANSACTIONS
 	
-			WHERE (CREATEDT + INTERVAL '9 HOUR') BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
+			WHERE (CREATEDT) BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
 	<if test="searchWrd21 != null ">	
 			AND ( CREATOR_MSP_ID LIKE '%' || #{searchWrd21} || '%' 	
 	</if>
@@ -725,7 +725,7 @@
 			AND TYPE LIKE '%' || #{searchWrd6} || '%'
 			AND CHAINCODENAME LIKE '%' || #{searchWrd7} || '%'
 	<if test="searchWrd8 != null and !searchWrd8.equals('')">
-			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd8} || '%'
+			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd8} || '%'
 	</if>
 			) t
 		
@@ -752,7 +752,7 @@
                  , CREATEDT AS createDt     
              FROM TRANSACTIONS
 	
-			WHERE (CREATEDT + INTERVAL '9 HOUR') BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
+			WHERE (CREATEDT) BETWEEN CAST(#{searchWrd} AS TIMESTAMP) AND CAST(#{searchWrd1} AS TIMESTAMP)
 	<if test="searchWrd21 != null ">	
 			AND ( CREATOR_MSP_ID LIKE '%' || #{searchWrd21} || '%' 	
 	</if>
@@ -789,7 +789,7 @@
 			AND TYPE LIKE '%' || #{searchWrd6} || '%'
 			AND CHAINCODENAME LIKE '%' || #{searchWrd7} || '%'
 	<if test="searchWrd8 != null and !searchWrd8.equals('')">
-			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd8} || '%'
+			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd8} || '%'
 	</if>
 			) t
 		
@@ -1072,7 +1072,7 @@
             AND NAME LIKE '%' || #{searchWrd4} || '%'
  			AND TO_CHAR(BLOCKS, '9999') LIKE '%' || #{searchWrd5} || '%'
  			AND TO_CHAR(TRANS, '9999') LIKE '%' || #{searchWrd6} || '%'
- 			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd7} || '%'
+ 			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd7} || '%'
              
 			ORDER BY ID DESC		
 			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
@@ -1092,7 +1092,7 @@
             AND NAME LIKE '%' || #{searchWrd4} || '%'
  			AND TO_CHAR(BLOCKS, '9999') LIKE '%' || #{searchWrd5} || '%'
  			AND TO_CHAR(TRANS, '9999') LIKE '%' || #{searchWrd6} || '%'
- 			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd7} || '%'
+ 			AND TO_CHAR((CREATEDT + INTERVAL '9 HOUR'), 'YYYY-MM-DD HH24:MI:SS.MS') LIKE '%' || #{searchWrd7} || '%'
 						
 				
 	</select>
