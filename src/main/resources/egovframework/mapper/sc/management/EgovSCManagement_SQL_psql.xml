@@ -128,7 +128,9 @@
 		<result property="createDt" column="createDt"/>	
 		<result property="validationCode" column="validationCode"/>	
 		<result property="payloadProposalHash" column="payloadProposalHash"/>
-		<result property="endorserMspId" column="endorserMspId"/>	
+		<result property="endorserMspId" column="endorserMspId"/>
+		<result property="readSet" column="readSet"/>
+		<result property="writeSet" column="writeSet"/>	
 	</resultMap>
 
 	<resultMap id="transactionHourCntList" type="egovframework.let.sc.management.service.TransactionVO">
@@ -843,7 +845,7 @@
   					TO_CHAR(NOW() + INTERVAL '9 HOUR' - INTERVAL '12 HOUR', 'HH PM') AS curHour12,
   					TO_CHAR(NOW() + INTERVAL '9 HOUR' - INTERVAL '13 HOUR', 'HH PM') AS curHour13,
   					TO_CHAR(NOW() + INTERVAL '9 HOUR' - INTERVAL '14 HOUR', 'HH PM') AS curHour14,
-  					TO_CHAR(NOW() + INTERVAL '9 HOUR' - INTERVAL '15 HOUR', 'HHH PM') AS curHour15,	
+  					TO_CHAR(NOW() + INTERVAL '9 HOUR' - INTERVAL '15 HOUR', 'HH PM') AS curHour15,	
   					TO_CHAR(NOW() + INTERVAL '9 HOUR' - INTERVAL '16 HOUR', 'HH PM') AS curHour16,			
   					TO_CHAR(NOW() + INTERVAL '9 HOUR' - INTERVAL '17 HOUR', 'HH PM') AS curHour17,  					
   					TO_CHAR(NOW() + INTERVAL '9 HOUR' - INTERVAL '18 HOUR', 'HH PM') AS curHour18,
@@ -996,6 +998,8 @@
 				 , COALESCE(CHAINCODENAME, '') AS chaincodeName
                  , COALESCE(TYPE, '') AS type          
                  , (CREATEDT + INTERVAL '9 HOUR') AS createDt     
+ 				 , COALESCE(READ_SET::JSON, '{}') AS readSet
+    			 , COALESCE(WRITE_SET::JSON, '{}') AS writeSet
               FROM TRANSACTIONS
              WHERE TXHASH = #{txHash}
  			
