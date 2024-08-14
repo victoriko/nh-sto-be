@@ -172,6 +172,14 @@ public interface EgovSCManagementManageService {
 	public TransactionVO selectTransactionCount(TransactionVO transactionVO)
 	  throws Exception;
 	
+	/**
+	 * 조건에 맞는 Peer 수를 조회 한다.
+	 * @return
+	 * 
+	 * @param 
+	 * @exception Exception Exception
+	 */
+	public int selectPeerCount() throws Exception;
 	
 	/**
 	 * 조건에 맞는 Chaincode 수를 조회 한다.

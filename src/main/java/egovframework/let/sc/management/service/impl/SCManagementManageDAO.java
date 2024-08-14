@@ -340,5 +340,12 @@ public class SCManagementManageDAO extends EgovAbstractMapper {
     	
     	return (Integer)selectOne("SCManagementManageDAO.selectTransactionCMspIdCntListCount", transactionVO);
     }
+
+
+	public int selectPeerCount() {
+		// TODO Auto-generated method stub
+		
+		return (Integer)selectOne("SCManagementManageDAO.selectPeerCount");
+	}
     
 }

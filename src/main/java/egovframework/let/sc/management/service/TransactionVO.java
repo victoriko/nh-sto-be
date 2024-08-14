@@ -623,8 +623,23 @@ public class TransactionVO extends Transaction implements Serializable {
 	/** 현재분(59분 전) */
 	private String curMin59 = "";
 
+    private String readSet; // JSON 형식의 데이터를 담을 수 있는 String 타입
+    private String writeSet; // JSON 형식의 데이터를 담을 수 있는 String 타입
 
-	
+    public String getReadSet() {
+        return readSet;
+    }
+    public void setReadSet(String readSet) {
+        this.readSet = readSet;
+    }
+    public String getWriteSet() {
+        return writeSet;
+    }
+    public void setWriteSet(String writeSet) {
+        this.writeSet = writeSet;
+    }
+    
+    
 	/**
 	 * searchBgnDe attribute를 리턴한다.
 	 *

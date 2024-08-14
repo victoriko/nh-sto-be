@@ -357,6 +357,15 @@ public class EgovSCManagementManageServiceImpl extends EgovAbstractServiceImpl i
 		return transactionVO;
 	}	
 
+	/**
+	 * 조건에 맞는 조건에 맞는 Peer 수를 조회 한다.
+	 */
+	@Override
+	public int selectPeerCount() throws Exception {
+
+		int cnt = scManagementMngDAO.selectPeerCount();
+		return cnt;
+	}	
 	
 	/**
 	 * 조건에 맞는 조건에 맞는 Chaincode 수를 조회 한다.

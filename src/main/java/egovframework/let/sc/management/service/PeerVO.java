@@ -50,6 +50,8 @@ public class PeerVO extends Peer implements Serializable {
 	/** 채널명 */
 	private String channelName = "";
 	
+	/** 트랜잭션 총 갯수 */
+	private int countPeer = 0;	
 	
 	/** 현재페이지 */
 	private int pageIndex = 1;
@@ -286,6 +288,26 @@ public class PeerVO extends Peer implements Serializable {
 		this.channelName = channelName;
 	}	
 
+
+	/**
+	 * countPeer attribute를 리턴한다.
+	 *
+	 * @return the countPeer
+	 */
+	public int getCountPeer() {
+		return countPeer;
+	}
+
+	/**
+	 * countPeer attribute 값을 설정한다.
+	 *
+	 * @param countPeer
+	 *            the countPeer to set
+	 */
+	public void setCountPeer(int countPeer) {
+		this.countPeer = countPeer;
+	}	
+	
 	/**
 	 * pageIndex attribute를 리턴한다.
 	 *

@@ -1105,9 +1105,9 @@
 	<select id="selectBlockCount" parameterType="egovframework.let.sc.management.service.BlockVO" resultType="java.lang.Integer">
 		
 			SELECT
-				COUNT(ID) 
+				BLOCKS 
 			FROM
-				BLOCKS		
+				CHANNEL		
 																			
 	</select>	
 
@@ -1115,13 +1115,12 @@
 	<select id="selectTransactionCount" parameterType="egovframework.let.sc.management.service.TransactionVO" resultType="java.lang.Integer">
 		
 			SELECT
-				COUNT(ID)
+				TRANS
 			FROM
-				TRANSACTIONS		
+				CHANNEL		
 																			
 	</select>	
-	
-	
+		
 	<select id="selectTransactionCMspIdCntList" parameterType="egovframework.let.sc.management.service.TransactionVO" resultMap="transactionCMspIdCntList">
 		
 			SELECT COALESCE(CREATOR_MSP_ID, '') AS creatorMspId
@@ -1165,5 +1164,15 @@
 																			
 	</select>	
 
+	<select id="selectPeerCount" resultType="java.lang.Integer">
+		
+			SELECT
+				COUNT(ID)
+			FROM
+				PEER	
+			WHERE
+			    PEER_TYPE = 'PEER' 	
+																			
+	</select>
 
 </mapper>

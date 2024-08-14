@@ -372,7 +372,8 @@ public class EgovSCManagementManageAPIController {
 	@ResponseBody
 	public ResultVO selectTransactionArticle(@RequestBody TransactionVO transactionVO)
 		throws Exception {
-
+//		System.out.println("selectTransactionArticleAPI");
+		
 		ResultVO resultVO = new ResultVO();
 
 		LoginVO user = new LoginVO();
@@ -383,6 +384,7 @@ public class EgovSCManagementManageAPIController {
 		TransactionVO vo = scManagementMngService.selectTransactionArticle(transactionVO);
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
+//	    System.out.println("vo : "+vo.toString());
 		resultMap.put("transactionVO", vo);
 		resultMap.put("user", user);
 
@@ -519,9 +521,14 @@ public class EgovSCManagementManageAPIController {
 		paginationInfo.setPageSize(propertyService.getInt("pageSize"));
 		
 		// PeerVo List 생성(ASC)
+//		System.out.println("=== peer");
 		peerVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		peerVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		peerVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
+		int peerCount = scManagementMngService.selectPeerCount();
+//		System.out.println("=== peerCount : "+peerCount);
+		peerVO.setCountPeer(scManagementMngService.selectPeerCount());
+//		System.out.println("=== peerVO.peerCount : "+peerVO.getCountPeer());
 		Map<String, Object> peerMap = scManagementMngService.selectPeerList(peerVO);
 		peerMap.put("peerVO", peerVO);
 		// PeerVo List 생성(DESC)
@@ -539,10 +546,10 @@ public class EgovSCManagementManageAPIController {
  		Map<String, Object> transactionCountMap = scManagementMngService.selectTransactionCMspIdCntList(transactionVO);
 		transactionCountMap.put("transactionVO", transactionVO);
 
-
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("peerMap", peerMap);
 		resultMap.put("peerReverseMap", peerReverseMap);
+//		System.out.println("=== peer "+peerMap.toString());
 		resultMap.put("blockMap", blockMap);
 //		resultMap.put("transactionMap", transactionMap);
 		resultMap.put("transactionCountMap", transactionCountMap);
@@ -560,6 +567,7 @@ public class EgovSCManagementManageAPIController {
 		resultMap.put("transactionMinVO", transactionVO4);	
 		ChaincodeVO chaincodeVO2 = scManagementMngService.selectChaincodeCount(chaincodeVO);
 		resultMap.put("chaincodeVO", chaincodeVO2);
+				
 		resultMap.put("user", user);
 
 		
