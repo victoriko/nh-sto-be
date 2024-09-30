@@ -74,7 +74,8 @@ public class PeerVO extends Peer implements Serializable {
 	/** 레코드 번호 */
 	private int rowNo = 0;
 
-	
+	/** rpc 상태 */
+    private boolean live;
 	
 	
 	/**
@@ -441,7 +442,25 @@ public class PeerVO extends Peer implements Serializable {
 		this.rowNo = rowNo;
 	}
 
-	
+	/**
+	 * live attribute를 리턴한다.
+	 *
+	 * @return the live
+	 */
+    public boolean getLive() {
+        return live;
+    }
+
+	/**
+	 * live attribute 값을 설정한다.
+	 *
+	 * @param live
+	 *            the live to set
+	 */
+    public void setLive(boolean live) {
+        this.live = live;
+    }
+    
 
 	/**
 	 * toString 메소드를 대치한다.

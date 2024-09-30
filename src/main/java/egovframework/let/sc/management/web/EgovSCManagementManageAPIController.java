@@ -1,18 +1,33 @@
 package egovframework.let.sc.management.web;
 
+import java.io.File;
 import java.text.DateFormat;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.springframework.stereotype.Service;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +40,7 @@ import egovframework.com.cmm.ResponseCode;
 import egovframework.com.cmm.service.ResultVO;
 import egovframework.com.cmm.util.EgovUserDetailsHelper;
 import egovframework.let.sc.management.service.EgovSCManagementManageService;
+import egovframework.let.sc.management.service.EgovSCManagementManageHealthCheckService;
 import egovframework.let.sc.management.service.PeerVO;
 import egovframework.let.sc.management.service.TransactionVO;
 import egovframework.let.sc.management.service.BlockVO;
@@ -33,6 +49,8 @@ import egovframework.let.sc.management.service.ChannelVO;
 
 import org.egovframe.rte.fdl.property.EgovPropertyService;
 import org.egovframe.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
 public class EgovSCManagementManageAPIController {
@@ -42,14 +60,17 @@ public class EgovSCManagementManageAPIController {
 	@Resource(name = "EgovSCManagementManageService")
     private EgovSCManagementManageService scManagementMngService;
 	
+//	@Resource(name = "EgovSCManagementManageFabricService")
+//    private EgovSCManagementManageFabricService fabricService;
+	
 	@Resource(name = "propertiesService")
 	protected EgovPropertyService propertyService;
 	
 	@Autowired
 	private DefaultBeanValidator beanValidator;
 	
+	private final Logger log = LoggerFactory.getLogger(EgovSCManagementManageAPIController.class);
 
-	
 	
 	/**
 	 * 조건에 맞는 피어를 조회 한다.
@@ -484,10 +505,10 @@ public class EgovSCManagementManageAPIController {
 		resultVO.setResultMessage(ResponseCode.SUCCESS.getMessage());
 		resultVO.setResult(resultMap);
 
-//		System.out.println("++++++++++++ channelVO {} : "+channelVO)
+//		System.out.println("++++++++++++ channelVO {} : "+channelVO);
 //		ObjectMapper objectMapper = new ObjectMapper();
 //		String resultVOJson = objectMapper.writeValueAsString(resultVO);
-//		System.out.println(resultVOJson);
+//		System.out.println("+++++++++++++++++++++ "+resultVOJson);
 		
 		return resultVO;
 	}	
@@ -525,18 +546,103 @@ public class EgovSCManagementManageAPIController {
 		peerVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		peerVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		peerVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
-		int peerCount = scManagementMngService.selectPeerCount();
+//		int peerCount = scManagementMngService.selectPeerCount();
 //		System.out.println("=== peerCount : "+peerCount);
 		peerVO.setCountPeer(scManagementMngService.selectPeerCount());
 //		System.out.println("=== peerVO.peerCount : "+peerVO.getCountPeer());
 		Map<String, Object> peerMap = scManagementMngService.selectPeerList(peerVO);
 		peerMap.put("peerVO", peerVO);
+//		log.info("peerMap content: {}", peerMap);
+		
+	    // resultList만 로그로 출력
+//        Object resultList = peerMap.get("resultList");
+//        log.info("=== resultList: {}", resultList);
+
+        List<PeerVO> resultList = (List<PeerVO>) peerMap.get("resultList");
+
+        if (resultList == null) {
+            log.info("=== resultList is null. Check if 'resultList' exists in peerMap.");
+        }
+
+//        log.info("=== resultList size: {}", resultList.size());
+
+        List<String> urlList = new ArrayList<>();
+
+        for (PeerVO result : resultList) {
+//            log.info("=== Processing result: {}", result);
+
+            String serverHostName = result.getServerHostName(); // PeerVO의 getter 메서드를 사용
+//            log.info("=== Retrieved serverHostName: {}", serverHostName);
+
+            if (serverHostName != null && serverHostName.contains(":")) {
+                serverHostName = serverHostName.substring(0, serverHostName.indexOf(":"));
+//                log.info("=== Modified serverHostName (port removed): {}", serverHostName);
+//            } else {
+//                log.info("=== serverHostName is null or does not contain a port.");
+            }
+
+            String events = result.getEvents(); // PeerVO에서 events를 String으로 반환한다고 가정
+//            log.info("=== Retrieved events: {}", events);
+
+            String url = "http://" + serverHostName + ":" + events + "/healthz";
+//            log.info("=== Generated URL: {}", url);
+
+            urlList.add(url);
+        }
+        // 최종 URL 리스트 출력
+//        log.info("=== Final URL List: {}", urlList);
+        
+    	// HealrhCheckService를 사용하여 피어 및 오더러 상태를체크
+		EgovSCManagementManageHealthCheckService healthCheckService = new EgovSCManagementManageHealthCheckService();
+
+//        log.info("=== healthCheckService.checkHealth() start");
+        Map<String, Boolean> healthCheckMap = healthCheckService.checkHealth(urlList); 
+        healthCheckMap.forEach((url, status) -> {
+//            log.info("=== URL: " + url + " - Status: " + status);
+        });
+//        log.info("=== healthCheckService.checkHealth() end");
+        
+        // URL과 resultList를 매칭하여 live 값을 설정
+        for (PeerVO result : resultList) {
+            String serverHostName = result.getServerHostName();
+
+            if (serverHostName != null && serverHostName.contains(":")) {
+                serverHostName = serverHostName.substring(0, serverHostName.indexOf(":")); // :port 제거
+            }
+
+            // healthCheckMap에서 URL의 도메인 이름만 비교
+            for (String url : healthCheckMap.keySet()) {
+                String urlDomain = url.replaceFirst("http://", "").split(":")[0]; // URL에서 도메인만 추출
+                
+                if (serverHostName.equals(urlDomain)) { // 도메인 이름만 비교
+                    Boolean isLive = healthCheckMap.get(url);
+
+                    if (isLive != null) {
+                        result.setLive(isLive); // PeerVO의 live 필드를 업데이트
+//                        log.info("=== Updated PeerVO -> serverHostName: {}, live: {}", serverHostName, isLive);
+//                    } else {
+//                        log.info("=== No status found for URL: {}", url);
+                    }
+                }
+            }        
+        }
+//        log.info("=== healthCheckService.checkHealth() end");
+        
 		// PeerVo List 생성(DESC)
 		peerVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		peerVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		peerVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
-		Map<String, Object> peerReverseMap = scManagementMngService.selectPeerReverseList(peerVO);
+//		Map<String, Object> peerReverseMap = scManagementMngService.selectPeerReverseList(peerVO);
+//		peerReverseMap.put("peerVO", peerVO);
+		List<PeerVO> reversedResultList = new ArrayList<>(resultList); 
+		Collections.reverse(reversedResultList); 
+		Map<String, Object> peerReverseMap = new HashMap<>();
+		peerReverseMap.put("resultList", reversedResultList);
 		peerReverseMap.put("peerVO", peerVO);
+	    // resultList만 로그로 출력
+//	    Object resultReverseList = peerReverseMap.get("resultList");
+//	    log.info("=== resultReverseList: {}", resultReverseList);
+			
 		// BlockVo List 생성
 		blockVO.setFirstIndex(0);
 		blockVO.setRecordCountPerPage(3);
@@ -584,8 +690,7 @@ public class EgovSCManagementManageAPIController {
 		return resultVO;
 	}		
 
-	
-	
+              		
 	/**
 	 * XSS 방지 처리.
 	 *
