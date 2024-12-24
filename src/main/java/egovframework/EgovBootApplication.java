@@ -26,15 +26,20 @@ public class EgovBootApplication {
 
 		System.out.println("##### EgovBootApplication End #####");
 	}
-	
-//	@Bean
-//    public WebMvcConfigurer corsConfigurer() {
-//        return new WebMvcConfigurer() {
-//            @Override
-//            public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/**").allowedOrigins("http://localhost:7100");
-//            }
-//        };
-//    }
+
+	@Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**") // 모든 경로에 대해 적용
+//                	.allowedOrigins("*")
+                	.allowedOrigins("http://localhost:7100") // ReactJS 주소
+                	.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // 허용할 메서드
+                	.allowedHeaders("*") // 모든 헤더 허용
+                	.allowCredentials(true); // 쿠키 인증 허용
+            }
+        };
+    }
 
 }

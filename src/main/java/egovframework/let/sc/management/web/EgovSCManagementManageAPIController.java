@@ -32,8 +32,10 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springmodules.validation.commons.DefaultBeanValidator;
+import org.springframework.http.ResponseEntity;
 
 import egovframework.com.cmm.LoginVO;
 import egovframework.com.cmm.ResponseCode;
@@ -53,6 +55,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller
+//@RequestMapping("/api")
 public class EgovSCManagementManageAPIController {
 
 	/** EgovSCManagementManageService */
@@ -110,6 +113,8 @@ public class EgovSCManagementManageAPIController {
 //		System.out.println("+++++++++++++++===="+ userVO.getPageIndex() );
 	
 		Map<String, Object> resultMap = scManagementMngService.selectPeerList(peerVO);
+		
+//		log.error("++++++++++++ resultMap {} : "+resultMap);
 
 		int totCnt = Integer.parseInt((String)resultMap.get("resultCnt"));
 		paginationInfo.setTotalRecordCount(totCnt);
@@ -204,6 +209,8 @@ public class EgovSCManagementManageAPIController {
 	
 		Map<String, Object> resultMap = scManagementMngService.selectBlockList(blockVO);
 
+//		log.error("++++++++++++ resultMap {} : "+resultMap);
+		
 		int totCnt = Integer.parseInt((String)resultMap.get("resultCnt"));
 		paginationInfo.setTotalRecordCount(totCnt);
 
@@ -245,6 +252,8 @@ public class EgovSCManagementManageAPIController {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("blockVO", vo);
 		resultMap.put("user", user);
+		
+//		log.error("++++++++++++ resultMap {} : "+resultMap);
 
 		resultVO.setResult(resultMap);
 		resultVO.setResultCode(ResponseCode.SUCCESS.getCode());
@@ -276,6 +285,8 @@ public class EgovSCManagementManageAPIController {
 	
 		Map<String, Object> resultMap = scManagementMngService.selectTransactionCMspIdList(transactionVO);
 		resultMap.put("transactionVO", transactionVO);
+		
+//		log.error("++++++++++++ resultMap {} : "+resultMap);
 
 		resultVO.setResultCode(ResponseCode.SUCCESS.getCode());
 		resultVO.setResultMessage(ResponseCode.SUCCESS.getMessage());
@@ -365,6 +376,8 @@ public class EgovSCManagementManageAPIController {
 //		System.out.println("++++++++++++++++++++++"+transactionVO.getSearchWrd8());
 		Map<String, Object> resultMap = scManagementMngService.selectTransactionList(transactionVO);
 
+//		log.error("++++++++++++ resultMap {} : "+resultMap);
+		
 		int totCnt = Integer.parseInt((String)resultMap.get("resultCnt"));
 		paginationInfo.setTotalRecordCount(totCnt);
 
@@ -408,6 +421,8 @@ public class EgovSCManagementManageAPIController {
 //	    System.out.println("vo : "+vo.toString());
 		resultMap.put("transactionVO", vo);
 		resultMap.put("user", user);
+		
+//		log.error("++++++++++++ resultMap {} : "+resultMap);
 
 		resultVO.setResult(resultMap);
 		resultVO.setResultCode(ResponseCode.SUCCESS.getCode());
@@ -455,7 +470,9 @@ public class EgovSCManagementManageAPIController {
 		resultMap.put("chaincodeVO", chaincodeVO);
 		resultMap.put("paginationInfo", paginationInfo);
 		resultMap.put("user", user);
-
+		
+//		log.error("++++++++++++ resultMap {} : "+resultMap);
+		
 		resultVO.setResultCode(ResponseCode.SUCCESS.getCode());
 		resultVO.setResultMessage(ResponseCode.SUCCESS.getMessage());
 		resultVO.setResult(resultMap);
@@ -476,6 +493,7 @@ public class EgovSCManagementManageAPIController {
 	@ResponseBody
 	public ResultVO selectChannelArticles(@RequestBody ChannelVO channelVO)
 		throws Exception {
+//		log.error("++++++++++++ selectChannelArticles : ");
 		ResultVO resultVO = new ResultVO();
 
 		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
@@ -500,6 +518,8 @@ public class EgovSCManagementManageAPIController {
 		resultMap.put("channelVO", channelVO);
 		resultMap.put("paginationInfo", paginationInfo);
 		resultMap.put("user", user);
+		
+//		log.error("++++++++++++ resultMap {} : "+resultMap);
 
 		resultVO.setResultCode(ResponseCode.SUCCESS.getCode());
 		resultVO.setResultMessage(ResponseCode.SUCCESS.getMessage());
@@ -641,7 +661,7 @@ public class EgovSCManagementManageAPIController {
 		peerReverseMap.put("peerVO", peerVO);
 	    // resultList만 로그로 출력
 //	    Object resultReverseList = peerReverseMap.get("resultList");
-//	    log.info("=== resultReverseList: {}", resultReverseList);
+//	    log.info("=== resultReverseList: {}", reversedResultList);
 			
 		// BlockVo List 생성
 		blockVO.setFirstIndex(0);
@@ -688,8 +708,13 @@ public class EgovSCManagementManageAPIController {
 		resultVO.setResultCode(ResponseCode.SUCCESS.getCode());
 		resultVO.setResultMessage(ResponseCode.SUCCESS.getMessage());
 		return resultVO;
-	}		
-
+	}	
+	
+	@GetMapping(value = "/")
+	@ResponseBody
+	public ResponseEntity<Void> getHealthy() {
+	    return ResponseEntity.ok().build(); 
+	}
               		
 	/**
 	 * XSS 방지 처리.
@@ -723,7 +748,21 @@ public class EgovSCManagementManageAPIController {
 	}
 
 
-
+//    /**
+//     * React 라우팅을 처리하는 메서드 추가
+//     */
+//    @RequestMapping(value = {"/{path:[^\\.]*}"})
+//    public String forwardToReact() {
+//        // React의 index.html로 요청을 전달
+//        return "forward:/index.html";
+//    }
+	
+//	   	@GetMapping(value = {"/", "/{path:[\\w\\-]+}", "/{path:^(?!api$).*$}/**"})
+////		@GetMapping(value = {"/", "/{path:[^\\.]*}"})
+//	    public String redirectToIndex() {
+//	        return "forward:/index.html";
+//	    }
+	
 }
 
 

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+
+	<property name="logLevel" value="ERROR" />
   	<springProperty name="Globals.LogLevel" source="/egovframework/egovProps/globals.properties"/>
 		
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -26,13 +28,13 @@
 			</rollingPolicy>
 	</appender>
 
-	<logger name="java.sql" level="Globals.LogLevel" />
-	<logger name="egovframework" level="Globals.LogLevel" />
-	<logger name="org.egovframe" level="Globals.LogLevel" />
-	<logger name="jdbc.sqltiming" level="Globals.LogLevel" />
-	<logger name="org.springframework" level="Globals.LogLevel" />
+	<logger name="java.sql" level="ERROR" />
+	<logger name="egovframework" level="ERROR" />
+	<logger name="org.egovframe" level="ERROR" />
+	<logger name="jdbc.sqltiming" level="ERROR" />
+	<logger name="org.springframework" level="ERROR" />
 	
-	<root level="${Globals.LogLevel}">
+	<root level="ERROR">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="ROLLING"/>  
 	</root>

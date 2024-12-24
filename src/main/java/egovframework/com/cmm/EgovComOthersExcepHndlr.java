@@ -12,5 +12,6 @@ public class EgovComOthersExcepHndlr implements ExceptionHandler {
     public void occur(Exception exception, String packageName) {
     	//log.debug(" EgovServiceExceptionHandler run...............");
     	LOGGER.error(packageName, exception);
+//    	LOGGER.error(packageName, exception.getMessage());
     }
 }

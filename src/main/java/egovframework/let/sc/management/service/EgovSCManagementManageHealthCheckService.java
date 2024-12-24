@@ -37,7 +37,7 @@ public class EgovSCManagementManageHealthCheckService {
 //            log.info("=== response : "+response);
             return response.contains("\"status\":\"OK\"");
         } catch (Exception e) {
-//        	 log.info("=== Error while checking URL: " + url, e);
+        	 log.info("=== Error while checking URL: " + url, e);
             return false;
         }
     }
